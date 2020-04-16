@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            // handles the click event, sends the query
+            //const API_KEY = 'UDRvTFNGL1l3cE5tRGh2Z0N4elN0dz09'
+            //const ORIGIN = ''
+            const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4LDQ2LDQ4XSwiaXNzdWVyX2lkIjo0MzIwLCJvcmlnaW4iOiJodHRwczovL2NlemFyLmlvIiwiYXVkIjoiSm9rZW4iLCJleHAiOjE1ODY4OTUxNDMsImlhdCI6MTU4Njg4Nzk0MywiaXNzIjoiSm9rZW4iLCJqdGkiOiIybzJzNGJhb3Rhc3BiamdhM2MwMDAwazEiLCJuYmYiOjE1ODY4ODc5NDN9.KrNYSnYYlg2yBvARVv9YjxuOfhIWRSaTcC5RmB5eF6E'
+
+            function fetchKingdoms() {
+                $.ajax({
+                    url:'/kingdom',
+                    type: 'GET',
+                    complete: function (response) {
+                        console.log(response.responseJSON)
+                        $('#output-1').html(response.responseText);
+                    },
+                    error: function () {
+                        $('#output-1').html('Bummer: there was an error!');
+                    },
+                });
+                return false;
+            }
+
+            function fetchFamilies() {
+                $.ajax({
+                    url:'/families',
+                    type: 'GET',
+                    complete: function (response) {
+                        console.log(response.responseJSON)
+                        $('#output-2').html(response.responseText);
+                    },
+                    error: function () {
+                        $('#output-2').html('Bummer: there was an error!');
+                    },
+                });
+                return false;
+            }
+
+            function fetchPlants() {
+                $.ajax({
+                    url:'/plants',
+                    type: 'GET',
+                    complete: function (response) {
+                        console.log(response.responseJSON)
+                        $('#output-3').html(response.responseText);
+                    },
+                    error: function () {
+                        $('#output-3').html('Bummer: there was an error!');
+                    },
+                });
+                return false;
+            }
+        </script>
+    </head>
+
+    <body>
+        <a href="#" onclick="return fetchKingdoms();"> fetch kingdom #1 </a>
+
+        <div id="output-1">
+
+          <a href="#" onclick="return fetchFamilies();"> fetch family #1 </a>
+
+          <div id="output-2">
+
+            <a href="#" onclick="return fetchPlants();"> fetch plants #1 </a>
+
+            <div id="output-3">
+
+        </div>
+    </body>
+</html>
